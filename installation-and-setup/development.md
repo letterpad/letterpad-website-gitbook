@@ -1,20 +1,19 @@
 # Development
 
-
-
 This installs a site that will run in development mode using sqlite3. You should use this installation for testing letterpad and for developing themes.
 
 #### 
 
 ### Install from github
 
-```text
-git clone https://github.com/letterpad/letterpad.git cd letterpad
+```bash
+git clone https://github.com/letterpad/letterpad.git 
+cd letterpad
 ```
 
 ### Create Environment
 
-Make a copy of `.env.sample` and name it `.env`. This files has some configurations which you don't necessarily have to change for the development environment unless you want to play around.
+Make a copy of `.env.sample` and name it `.env`. This file has some configurations which you don't necessarily have to change for the development environment unless you want to play around.
 
 ### Install dependencies & run
 

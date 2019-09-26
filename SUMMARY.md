@@ -33,4 +33,6 @@
 * [Webpack](others/webpack.md)
 * [Queries and Mutations](others/queries-and-mutations.md)
 * [Folder Aliases](others/folder-aliases.md)
+* [Database](others/database.md)
+* [Translations](others/translations.md)
 

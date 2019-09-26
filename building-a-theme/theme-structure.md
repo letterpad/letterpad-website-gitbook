@@ -1,8 +1,10 @@
 # Theme Structure
 
-All themes are contained inside the folder `client/themes`. To start building your first theme, create a folder inside themes directory. You can name this folder whatever you want. This folder should contain a `config.json` having the below structure.
+All themes are contained inside the folder `src/client/themes`. To start building your first theme, create a folder inside themes directory. You can name this folder whatever you want. This folder should contain a `config.json` having the below structure.
 
-```text
+{% code-tabs %}
+{% code-tabs-item title="config.json" %}
+```javascript
 {      
   "name": "Theme Name",
   "short_name": "theme-name",   
@@ -11,14 +13,16 @@ All themes are contained inside the folder `client/themes`. To start building yo
   "thumbnail": "/images/thumbnail.png"
 }
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
-This data will be read by letterpad to highlight your theme in the Themes section.
+This data will be read by letterpad to highlight your theme in the Themes section in admin panel.
 
 > The **`short_name`** is used to reference your theme. It should not contain spaces. You can think of this as a technical name of your theme.
 
 A theme consists of a set of components which should reside inside the folder `containers`.
 
-It should contain the below components.
+It should contain the below components with the same filenames.
 
 * Layout
 * Home
@@ -34,5 +38,5 @@ You might want to give some additional settings \(optional\) to the user to cont
 * checkbox
 * select \(dropdown\)
 
-You can read more about [these over here](https://letterpad.app/docs/page/theme-settings).
+You can read more about [these over here](theme-settings.md).
 

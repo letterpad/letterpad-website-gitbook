@@ -28,7 +28,7 @@ Below are the props that will be passed to the `SingplePage` component.
 
 With the help of the above data, you can write your own component that will be rendered. Below is an example.
 
-> Rembere to pass this data to the [SEO component](https://letterpad.app/page/handling-seo) and include it while developing this.
+> Rembere to pass this data to the [SEO component](../others/seo.md) and include it while developing this.
 
 ```javascript
 import React, { Component } from "react";

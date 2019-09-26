@@ -4,9 +4,9 @@
 
 Letterpad supports a list of posts or just a single page as the homepage. It will recieve a prop `type`, which can be either `category` or `page` .
 
-If it is a category then it means, it can have multiple posts with that category assigned. So you should load a component which can handle multiple posts. This is where you load the `Posts` component.
+If it is a category, it can have multiple posts with that category assigned. So you should load a component which can handle multiple posts. This is why we use the `Posts` component.
 
-For the other case, if the type is page then you load the `Page` component.
+For the other case, if the type is `page` then we use the `Page` component.
 
 > You can import third party libraries if you want anywhere in your theme. Your theme can have a `package.json` file.
 
@@ -20,12 +20,14 @@ import PropTypes from "prop-types";
 import Posts from "./Posts";
 import SinglePage from "./SinglePage";
 
-export default class Home extends Component {
-    render() {
+const Home = (props) => {
+    return {
         if (this.props.type === "category") {
             return <Posts slug={this.props.slug} {...this.props} />;
         }
         return <SinglePage slug={this.props.slug} {...this.props} />;
-    }}
+    }
+}
+export default Home;
 ```
 

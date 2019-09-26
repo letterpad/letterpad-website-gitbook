@@ -70,7 +70,36 @@ If you have a domain, change the value of **rootUrl** to `http://[your-domain].c
 
 You also need to change the **apiUrl** and **uploadUrl.** Replace [http://localhost:3030](http://localhost:3030/) to the same value which you did in the last step. If you have used the dropletIp, your file will look something like below:
 
-![](https://cdn-images-1.medium.com/max/1600/1*H_5zde4TzU9NhlE-AQHvHw.png)
+```bash
+# Change this
+SECRET_KEY=some-dark-hidden-secret
+
+appPort=4040
+rootUrl="http://localhost:$appPort"
+# if you are running inside a sub folder, enter that folder name.
+baseName=
+
+# Database [sqlite | postgres | mysql]
+DB_TYPE=sqlite
+
+# IF you want to use mysql/postgres, 
+# then add necessary information of your database
+DB_HOST=127.0.0.1
+DB_USER=root
+DB_PASSWORD=
+DB_PORT=3306
+DB_NAME=
+
+# Email
+SMTP_HOST=smtp.gmail.com
+SMTP_USERNAME=
+SMTP_PASSWORD=
+SMTP_PORT=465
+SMTP_SECURE=false
+SMTP_FROM_NAME=Letterpad
+SMTP_FROM_EMAIL=
+
+```
 
 _If you’re using a domain, make sure you’ve configured your DNS properly and allowed enough time for it to resolve \(usually up to 24 hours\)._
 
@@ -84,15 +113,34 @@ The last step is to install required modules through yarn.
 
 ### Configure Nginx
 
-Now we need to configure Nginx to act as a reverse proxy for our letterpad. All the traffic will first hit this nginx server and then nginx server will route this to your nodejs server where letterpad is running.
+Now we need to configure Nginx to act as a reverse proxy for Letterpad. All the traffic will first hit this nginx server and then nginx server will route this to your nodejs server where letterpad is running.
 
-Let’s replace the default config with a custom one:
+Let’s replace the default nginx config with a custom one:
 
 ```text
 sudo nano /etc/nginx/sites-available/default
 ```
 
 Delete everything and paste the following:
+
+```bash
+server {
+  listen 80;
+  server_name example.com;
+
+  # Max upload size for proxy
+  client_max_body_size 100m;
+
+  location / {
+    proxy_pass http://localhost:4040;
+    proxy_http_version 1.1;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection 'upgrade';
+    proxy_set_header Host $host;
+    proxy_cache_bypass $http_upgrade;
+  }
+}
+```
 
 Make sure to change `yourdomain.com` to the same domain or IP address you used in the `.env` file.
 
@@ -107,7 +155,7 @@ sudo systemctl restart nginx
 
 ### Install Dependencies
 
-We will use — production=false as an argument to install the devDependencies as well for building optimised letterpad bundles.
+We will use — production=false as an argument to install the devDependencies as well for building optimised letterpad assets.
 
 ```text
 yarn install --production=false
@@ -118,10 +166,10 @@ yarn install --production=false
 Before starting letterpad, we have to create the optimized bundles. We can do so by entering the below command in your terminal.
 
 ```text
-theme=hugo yarn build
+yarn build
 ```
 
-This will build the letterpad engine as well the theme hugo.
+This will build the letterpad engine as well the default theme `hugo`.
 
 ### Run Letterpad
 

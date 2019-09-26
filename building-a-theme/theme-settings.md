@@ -1,6 +1,6 @@
 # Theme Settings
 
-You can offer some level of customizations to the users using your theme. To do that, you can create `settings.json` in the root of your theme folder. It should contain an array of objects, where each object represents a HTML element. So the basic structure should be like this:
+You can offer some level of customizations to the users using your theme. To do that, create `settings.json` file in the root of your theme folder. It should contain an array of objects, where each object represents a HTML element. So the basic structure should be like this:
 
 ```text
 [ 
@@ -68,5 +68,7 @@ These are the elements that you can provide.
  }
 ```
 
-This settings will be available to you automatically in the Layout Component as props.
+This settings will be available to you automatically in the Layout Component as props as `props.themeConfig`
+
+
 
