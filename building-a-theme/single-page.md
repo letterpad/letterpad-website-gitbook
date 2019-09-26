@@ -30,7 +30,7 @@ With the help of the above data, you can write your own component that will be r
 
 > Rembere to pass this data to the [SEO component](https://letterpad.app/page/handling-seo) and include it while developing this.
 
-```text
+```javascript
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import Article from "../components/Post/Article";

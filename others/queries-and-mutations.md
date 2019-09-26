@@ -6,7 +6,7 @@ Letterpad communicates with the backend through GraphQL. This is beneficial beca
 
 All the available mutations and queries in the stored in the shared/queries directory. Below is an example of how a query to fetch a post might look like.
 
-```text
+```javascript
 export const GET_SINGLE_POST = gql`
     query getPost($id: Int!) {
         post(id: $id) {
@@ -21,7 +21,7 @@ export const GET_SINGLE_POST = gql`
 
 Since the above query in reality will contain more output fields and since those output fields will be used in different queries, we make use of fragments to encapsulate some common fields. So the above query can be written as:
 
-```text
+```jsx
 import { PostFragment } from "./Fragments";
 
 export const GET_SINGLE_POST = gql`
@@ -38,7 +38,7 @@ The folder `data-sources` contains components which uses this data and gives bac
 
 The above query can be used in any of the React component as below.
 
-```text
+```jsx
 import React, { Component } from "react";
 import Article from "../components/Post/Article";
 import Loader from "client/helpers/Loader";

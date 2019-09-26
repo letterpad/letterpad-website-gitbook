@@ -6,7 +6,7 @@ The Post component is responsible to display a list of posts along with paginati
 
 > You do not have to keep an internal state for posts and append pagination data into it. The new posts coming from pagination will be available inside the props _posts_.
 
-```text
+```javascript
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 // A component to display post

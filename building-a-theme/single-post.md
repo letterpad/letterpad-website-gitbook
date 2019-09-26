@@ -34,7 +34,7 @@ adjacentPosts = {previous: {}, next:{}} ;
 
 This is an example component of how your code may look like.
 
-```text
+```javascript
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import Article from "../components/Post/Article";

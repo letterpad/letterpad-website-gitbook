@@ -15,7 +15,7 @@ These are the elements that you can provide.
 
 ### Input box
 
-```text
+```javascript
 {        
   "name": "first-name",
   "type": "text",       
@@ -29,7 +29,7 @@ These are the elements that you can provide.
 
 ### Radio Button
 
-```text
+```javascript
 {        
   "name": "display-footer",
   "type": "radio",       
@@ -43,7 +43,7 @@ These are the elements that you can provide.
 
 ### Checkbox
 
-```text
+```javascript
 {        
   "name": "fruit-likes",
   "type": "checkbox",       
@@ -57,7 +57,7 @@ These are the elements that you can provide.
 
 ### Dropdown
 
-```text
+```javascript
 {        
   "name": "post-count",      
   "tag": "select",   

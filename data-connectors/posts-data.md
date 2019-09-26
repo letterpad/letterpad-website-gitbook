@@ -26,8 +26,9 @@ offset:  (default) offset || 0
 
 **output props:**
 
-```text
-{    "fetchMore": function
+```javascript
+{    
+    "fetchMore": function
     "loading": true | false,
     "total": 10,
     "posts": [
@@ -60,6 +61,7 @@ offset:  (default) offset || 0
                ]
                
            }
-     ]}
+     ]
+}
 ```
 

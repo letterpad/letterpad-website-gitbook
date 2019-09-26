@@ -14,7 +14,7 @@ For the other case, if the type is page then you load the `Page` component.
 
 When you are in the root url `http://localhost:4000`, the initial component will be determined from the menu's first child. If the first child is a folder, then its first child will be used. This child will contain the type and the slug and will be passed to the Home Component through Layout Component. Below is an example how your home component might look like.
 
-```text
+```javascript
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import Posts from "./Posts";

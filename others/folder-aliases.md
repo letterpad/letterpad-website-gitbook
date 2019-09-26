@@ -4,7 +4,7 @@ To make it easy to access different files in different folders, there are few al
 
 When you are developing a theme, you will be inside the folder `./client/themes/theme-name/`. From within your components you can access the root folders like `client`, `shared`, `config` by using aliases.
 
-```text
+```jsx
 import config from "config";
 import PostsData from "shared/data-connectors/PostsData";
 import Loader from "client/helpers/Loader";

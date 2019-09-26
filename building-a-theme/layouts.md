@@ -2,7 +2,7 @@
 
 Layouts are usually high order components or functions and this is the same in Letterpad. It will receive the arguments `Element` and `props`. The Element is the Component that needs to be rendered. It can be Home, Posts, SinglePage, SinglePost, SearchWrapper, 404.
 
-```text
+```javascript
 export default function Layout(Element, props) {
        class Child extends Component {
             // this.props will have addition information

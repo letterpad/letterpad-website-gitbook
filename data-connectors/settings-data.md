@@ -28,8 +28,31 @@ settings.data[key].value
 All these values are configuration from the Admin Dashboard.
 
 ```text
-site_title site_taglinesite_emailsite_urlsite_footersite_descriptionpost_displaylayout_displaysocial_twittersocial_facebooksocial_instagramsocial_githubtext_notfoundtext_posts_emptysidebar_latest_post_countsidebar_aboutmenucsslocalethemebannerdisplayAuthorInfodisqus_id
-
-site_logogoogle_analyticseditor
+site_title 
+site_tagline
+site_email
+site_url
+site_footer
+site_description
+post_display
+layout_display
+social_twitter
+social_facebook
+social_instagram
+social_github
+text_not
+foundtext_posts_empty
+sidebar_latest_post_count
+sidebar_about
+menu
+css
+locale
+theme
+banner
+displayAuthorInfo
+disqus_id
+site_logo
+google_analytics
+editor
 ```
 
