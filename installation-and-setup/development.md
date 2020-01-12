@@ -2,8 +2,6 @@
 
 This installs a site that will run in development mode using sqlite3. You should use this installation for testing letterpad and for developing themes.
 
-#### 
-
 ### Install from github
 
 ```bash
@@ -30,5 +28,5 @@ Now visit [http://localhost:4040](http://localhost:4040/) and checkout your inst
 To visit the admin dashboard, visit [http://localhost:4040/admin](http://localhost:4040/admin). The initial credentials of admin are:
 
 * Email: [admin@letterpad.com](mailto:admin@letterpad.com)
-* Password: password
+* Password: demo
 

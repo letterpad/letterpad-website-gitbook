@@ -1,6 +1,6 @@
 # Introduction
 
-Letterpad is an open source blog publishing engine with a state-of-the-art technology. It runs on Node.js and has been developed with React. It uses Graphql to exchange data in json format and uses sqlite3 as the default database.  It uses Sequelize ORM, so other databases can be used. The editor has been built on top of slate.js. It supports both richtext and markdown.
+Letterpad is an open source blog publishing engine with a state-of-the-art technology. It runs on Node.js and written in React. It uses Graphql to interact with the API and uses sqlite3 as the default database. For a good developer experience, Letterpad is a strictly typed Typescript project. It supports both richtext and markdown.
 
 This documentation is designed to suit users who are reasonably confident working with a JavaScript technology stack, and deploying their own web applications. We also have a installer script that can install Letterpad and all its dependencies including the server in one go. In any situation, if you are stuck, feel free to reach out to us [through these channels](channels.md).
 

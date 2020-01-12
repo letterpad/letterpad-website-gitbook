@@ -1,42 +1,74 @@
-# Theme Structure
+# Additional Theme Settings
 
-All themes are contained inside the folder `src/client/themes`. To start building your first theme, create a folder inside themes directory. You can name this folder whatever you want. This folder should contain a `config.json` having the below structure.
+You can offer some level of customization options to your theme which can be changed from the admin dashboard. To do that, create **`settings.json`** file in the root of your theme folder. It should contain an array of objects, where each object represents a HTML element. So the basic structure should be like this:
 
-{% code-tabs %}
-{% code-tabs-item title="config.json" %}
-```javascript
-{      
-  "name": "Theme Name",
-  "short_name": "theme-name",   
-  "description": "A lightweight theme for writing stories.",    
-  "author": "Foo Bar",    
-  "thumbnail": "/images/thumbnail.png"
-}
+```text
+[ 
+   { ... },
+   { ... }
+] 
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
 
-This data will be read by letterpad to highlight your theme in the Themes section in admin panel.
+{% hint style="danger" %}
+As these options will be availble publicly, **do not** provide options like passwords, api keys, or personal details.
+{% endhint %}
 
-> The **`short_name`** is used to reference your theme. It should not contain spaces. You can think of this as a technical name of your theme.
+These are the elements that you can provide.
 
-A theme consists of a set of components which should reside inside the folder `containers`.
+### Input box
 
-It should contain the below components with the same filenames.
+```javascript
+{        
+  "name": "first-name",
+  "type": "text",       
+  "tag": "input",        
+  "placeholder": "Enter your name",        
+  "defaultValue": "Foo Bar",        
+  "label": "Enter your name",        
+  "helpText": "..."    
+ }
+```
 
-* Layout
-* Home
-* Posts
-* SinglePage
-* SinglePost
-* SearchWrapper
+### Radio Button
 
-You might want to give some additional settings \(optional\) to the user to control the behaviour of your theme. In order to do that, you should create another file `settings.json` and keep it inside the root folder of your theme. In this file, you can create your UI elements as json object. We support:
+```javascript
+{        
+  "name": "display-footer",
+  "type": "radio",       
+  "tag": "input",   
+  "options": ["Yes", "No"],            
+  "defaultValue": "No",        
+  "label": "Would you like to display a footer ?",        
+  "helpText": ".."    
+ }
+```
 
-* input box \(text\)
-* radio
-* checkbox
-* select \(dropdown\)
+### Checkbox
 
-You can read more about [these over here](theme-settings.md).
+```javascript
+{        
+  "name": "fruit-likes",
+  "type": "checkbox",       
+  "tag": "input",   
+  "options": ["Orange", "Apple", "Banana"],         
+  "defaultValue": ["Apple"], // <== This is an array
+  "label": "Which fruits do you like ?",        
+  "helpText": ".."    
+ }
+```
+
+### Dropdown
+
+```javascript
+{        
+  "name": "post-count",      
+  "tag": "select",   
+  "options": ["5", "10", "15", "20"],         
+  "defaultValue": 25,
+  "label": "How many posts would you like to display ?",        
+  "helpText": ".."    
+ }
+```
+
+These settings will be available to you automatically in the Layout Container as one of the prop **`themeSettings`**.
 

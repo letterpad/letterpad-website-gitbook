@@ -4,30 +4,54 @@ Welcome to Letterpad's theme development guide!
 
 Letterpad themes are intended to be very simple to build and maintain. You should have some knowledge on React to build a theme.
 
-Letterpad takes care of the dependencies of your theme, manages the build and takes care of server side rendering. You can consider a theme like a standalone application. Letterpad provides a set of HOC's \(High Order Components\) which are data-connectors. You can use them as a wrapper for your components to get data. You can also create your own data-extracting HOC's and use them in your components.
+Letterpad takes care of the dependencies of your theme, manages the build and takes care of server side rendering. A theme is always server sided rendered to take care of SEO.
 
-### Behind the scenes
+All themes are contained inside the folder `src/client/themes`. To start building your first theme, create a folder inside themes directory. You can name this folder whatever you want. For this example, lets call it `mytheme`.
 
-In the development mode, the themes are bundled on the fly whereas in production mode, the themes are pre-bundled to be used directly. The router is responsible to take the request and call the appropriate component. Below are the list of components that should exist for each theme.
+A theme is responsible to fetch the appropriate data from the graphql API and render it with a relevant design. These are mandatory files of a theme.
 
-* Layout \(hoc\)
-* Home
-* Posts
-* SinglePage
-* SinglePost
-* SearchWrapper
-* 404
+```text
+- mytheme
+    - containers
+        - Home.tsx
+        - SinglePage.tsx
+        - SinglePost.tsx
+        - SearchWrapper.tsx
+        - Posts.tsx
+        - NotFound.tsx
+        - Layout.tsx
+    - config.json
+```
 
-These components already exist outside the themes directory as the default components. When you implement these components inside your theme, letterpad detects them and uses them instead of the default ones.
+All the files in the containers gets mapped with the routes. When a route is matched, the relevant container is picked up. It is then passed to the `Layout` container as a prop with some other additional props. We will learn more about containers in the [next page.](containers/)
 
-The most **important** component is the `Layout` component. This is the component which will be called everytime a request comes in. The layout component will recieve two arguments:
+{% hint style="info" %}
+There is no significant difference between a **page** and a **post** except that page cannot have taxonomies like tags and categories. The difference is mostly on how we use them. For eg. When you are reading a blog post, you might give a suggestion below the post about the next and previous post. But it is unlikely that you will mention that in Page.
+{% endhint %}
 
-* Element - Component to be rendered
-* props - additional data like settings, slug, router, etc.
+The file **`config.json`** should contains the metadata of the theme. This is used in displaying the theme in the admin dashboard.
 
-You dont have to worry about what `Element` is this, it can be Home, Posts, SingplePage etc. You just have to make sure that the Layout component is creating the layout for your theme and the Element is being called with the required props.
+{% code title="config.json" %}
+```javascript
+{      
+  "name": "Theme Name",
+  "short_name": "theme-name",   
+  "description": "A lightweight theme for writing stories.",    
+  "author": "Foo Bar",    
+  "thumbnail": "/images/thumbnail.png"
+}
+```
+{% endcode %}
+
+{% hint style="info" %}
+The **`short_name`** is used to reference your theme. It should not contain spaces. You can think of this as a technical name of your theme.
+{% endhint %}
+
+### External Libraries
+
+You can import third party libraries in your theme. So your theme can have a `package.json` fille containing all the dependencies. Letterpad will internally install them by using `yarn install`.
 
 ### Loading the right theme
 
-When a request comes in, the server decides which theme to use based on _environment variable_ or the theme _set through admin dashboard_. If none of theme are found, then the default theme `hugo` is used.
+When a request comes in, the server decides which theme to use based on environment variable or the theme set through admin dashboard. If none of theme are found, then the default theme `hugo` is used.
 
