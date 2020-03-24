@@ -74,10 +74,11 @@ You also need to change the **apiUrl** and **uploadUrl.** Replace [http://localh
 # Change this
 SECRET_KEY=some-dark-hidden-secret
 
-appPort=4040
-rootUrl="http://localhost:$appPort"
-# if you are running inside a sub folder, enter that folder name.
-baseName=
+APP_PORT=4040
+ROOT_URL="http://localhost:$appPort"
+# if you are running inside a sub folder, enter that folder name. 
+# eg. /blog
+BASE_NAME=
 
 # Database [sqlite | postgres | mysql]
 DB_TYPE=sqlite
@@ -166,14 +167,14 @@ yarn install --production=false
 Before starting letterpad, we have to create the optimized bundles. We can do so by entering the below command in your terminal.
 
 ```text
-yarn build
+yarn buildAllThemes
 ```
 
 This will build the letterpad engine as well the default theme `hugo`.
 
 ### Run Letterpad
 
-Once that is done, we will run the below command to turn on letterpad.
+Once that is done, we will run the below command to turn on letterpad. Remember to have the environment variable `NODE_ENV` to `production` 
 
 ```text
 yarn prod
@@ -187,7 +188,7 @@ To run any nodeJS application continiously, we will need a task runner like pm2 
 
 ```text
 yarn global add pm2
-yarn prodPm2
+pm2 start dist/server.js --name=myblog
 sudo pm2 startup systemd
 ```
 

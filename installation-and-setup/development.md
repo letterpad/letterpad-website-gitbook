@@ -11,22 +11,25 @@ cd letterpad
 
 ### Create Environment
 
-Make a copy of `.env.sample` and name it `.env`. This file has some configurations which you don't necessarily have to change for the development environment unless you want to play around.
+Make a copy of `sample.env` and name it `.env`. This file has some configurations which you don't necessarily have to change for the development environment unless you want to play around.
 
 ### Install dependencies & run
 
 ```text
 yarn install 
-yarn seed
 yarn dev
 ```
+
+> Letterpad depends on yarn workspaces, so you cannot use npm to install. **Use yarn.**
 
 ### Run
 
 Now visit [http://localhost:4040](http://localhost:4040/) and checkout your installation
 
+#### Admin Dashboard
+
 To visit the admin dashboard, visit [http://localhost:4040/admin](http://localhost:4040/admin). The initial credentials of admin are:
 
-* Email: [admin@letterpad.com](mailto:admin@letterpad.com)
-* Password: demo
+* Email: **demo@demo.com**
+* Password: **demo**
 

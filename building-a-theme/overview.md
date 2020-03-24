@@ -8,43 +8,74 @@ Letterpad takes care of the dependencies of your theme, manages the build and ta
 
 All themes are contained inside the folder `src/client/themes`. To start building your first theme, create a folder inside themes directory. You can name this folder whatever you want. For this example, lets call it `mytheme`.
 
-A theme is responsible to fetch the appropriate data from the graphql API and render it with a relevant design. These are mandatory files of a theme.
+A theme is responsible to fetch the appropriate data from the graphql API and render it with a relevant design. These are essential files of a theme.
 
 ```text
 - mytheme
-    - containers
-        - Home.tsx
-        - SinglePage.tsx
-        - SinglePost.tsx
-        - SearchWrapper.tsx
-        - Posts.tsx
-        - NotFound.tsx
-        - Layout.tsx
+    - public
+    - app.tsx
     - config.json
+    - tsconfig.json
+    - package.json
+    - settings.json [optional]
 ```
 
-All the files in the containers gets mapped with the routes. When a route is matched, the relevant container is picked up. It is then passed to the `Layout` container as a prop with some other additional props. We will learn more about containers in the [next page.](containers/)
-
-{% hint style="info" %}
-There is no significant difference between a **page** and a **post** except that page cannot have taxonomies like tags and categories. The difference is mostly on how we use them. For eg. When you are reading a blog post, you might give a suggestion below the post about the next and previous post. But it is unlikely that you will mention that in Page.
-{% endhint %}
-
-The file **`config.json`** should contains the metadata of the theme. This is used in displaying the theme in the admin dashboard.
+The file **`config.json`** should contain the metadata of the theme. This is used in displaying the theme in the admin dashboard.
 
 {% code title="config.json" %}
 ```javascript
 {      
   "name": "Theme Name",
-  "short_name": "theme-name",   
   "description": "A lightweight theme for writing stories.",    
   "author": "Foo Bar",    
-  "thumbnail": "/images/thumbnail.png"
+  "thumbnail": "/images/thumbnail.png" // keep this in public folder
 }
+
+tsconfig.json
 ```
 {% endcode %}
 
+`tsconfig.json` file is used to build your theme. You can the default settings.
+
+{% code title="tsconfig.json" %}
+```javascript
+{
+  "include": ["*"],
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es2015",
+    "outDir": "../../../../dist",
+    "jsx": "react",
+    "allowJs": true,
+    "skipLibCheck": true,
+    "moduleResolution": "Node",
+    "esModuleInterop": true
+  },
+  "exclude": ["node_modules"]
+}
+
+```
+{% endcode %}
+
+`app.tsx` is the root file of any theme. It exports some components with defined names that Letterpad uses to map to each route.
+
+{% code title="app.tsx" %}
+```javascript
+export default {
+  Layout,
+  Home,
+  Page,
+  Posts,
+  Post,
+  NotFound,
+};
+```
+{% endcode %}
+
+When a route is matched, the relevant component is picked up. It is then passed to the `Layout` container as a prop with some other additional props. We will learn more about the props in the [next page.](components/)
+
 {% hint style="info" %}
-The **`short_name`** is used to reference your theme. It should not contain spaces. You can think of this as a technical name of your theme.
+There is no significant difference between a **page** and a **post** except that page cannot have taxonomies like tags and categories. The difference is mostly on how we use them. For eg. When you are reading a blog post, you might give a suggestion below the post about the next and previous post. But it is unlikely that you will mention that in Page.
 {% endhint %}
 
 ### External Libraries

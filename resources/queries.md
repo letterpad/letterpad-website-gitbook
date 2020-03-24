@@ -284,7 +284,7 @@ const { loading, data } = useQuery<TaxonomiesQuery, TaxonomiesQueryVariables>(
 
 ### **QUERY\_SETTINGS**
 
-This query is used to fetch blog settings. This data is already made available to `Layout.tsx`, so you will mostly not need this query to run. [Read th](../building-a-theme/containers/layouts.md)[is block](../building-a-theme/containers/layouts.md) for more information. And you will receive a better formatted data like this:
+This query is used to fetch blog settings. This data is already made available to `Layout.tsx`, so you will mostly not need this query to run. [Read th](../building-a-theme/components/layouts.md)[is block](../building-a-theme/components/layouts.md) for more information. And you will receive a better formatted data like this:
 
 ```javascript
 {
@@ -550,7 +550,7 @@ const { loading, data } = useQuery<SettingsQuery>(QUERY_SETTINGS);
 
 ### **QUERY\_THEMES**
 
-This query is used to fetch the custom ui configuration of  themes. This query wont be required when you are developing a theme. This is already passed down to you in the `Layout` component as a prop, **themeSettings.** [Read more](../building-a-theme/containers/layouts.md) about this in the Layout section.
+This query is used to fetch the custom ui configuration of  themes. This query wont be required when you are developing a theme. This is already passed down to you in the `Layout` component as a prop, **themeSettings.** [Read more](../building-a-theme/components/layouts.md) about this in the Layout section.
 
 **Using Apollo**
 
