@@ -14,6 +14,7 @@
 * [Typescript](building-a-client/typescript.md)
 * [Queries](building-a-client/queries-1.md)
 * [Features](building-a-client/features.md)
+* [Good Practices](building-a-client/good-practices.md)
 
 ## Others
 

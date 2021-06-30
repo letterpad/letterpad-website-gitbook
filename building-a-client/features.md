@@ -161,5 +161,16 @@ Footer is a html string. Make sure to render is as html and not as a string.
 
 
 
+#### Lazy loading Images
+
+We take care of the images and add all the necessary attributes to lazy load them. Although lazy loading is supported by most modern browsers, we use [lazysizes](https://github.com/aFarkas/lazysizes) library to make it more performant. Simply add this script in the head of your document and its done.
+
+```markup
+<script
+   src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js"
+   async
+/>
+```
+
 
 
