@@ -10,7 +10,7 @@ Letterpad is a tiny project in terms of the number of people actively working on
 
 Blogging has been a part of our lives from a very long time. There are so many great options available but still we felt the need of a system which is not very commercial, ad-free, heavily performant, minimalistic and good looking. Most of the platforms has been developed with great features, but as a independent blogger we felt the need of system which has a smaller footprint. And with that Letterpad was developed. 
 
-Letterpad can be used as a platform or in your server. We also provide you with a client which is also made with next.js, but you can create your own client in any language you want.  
+Letterpad can be used as a platform or in your server. We also provide you with a client which is also made with next.js, but you can create your own client in any language you want. 
 
 
 
