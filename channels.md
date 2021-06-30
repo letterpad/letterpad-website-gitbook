@@ -6,7 +6,7 @@ If you would like to report bugs or clarify anything related to letterpad, you c
 
 Join us on [slack with this link](https://letterpad.slack.com/).
 
-[Click here](https://tinyurl.com/letterpad) for the invite.
+[Click here](https://tinyurl.com/letterpad-invite) for the invite.
 
 ### Twitter
 

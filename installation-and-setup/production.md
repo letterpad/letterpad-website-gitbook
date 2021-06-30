@@ -59,58 +59,18 @@ cd letterpad
 
 This will create `/var/www/letterpad` and copy the source from GitHub.
 
-Next we need to create the `.env` file. This file contains important settings that Letterpad needs to run. We can use the existing`sample.env` provided by letterpad as a template, so let's copy it to `.env` and open it for editing:
+Next we need to copy `.env.development.local` to `.env.production.local`file. Setup your production configurations in this file. 
 
 ```text
-cp sample.env .env
+cp .env.development.local .env.production.local
 nano .env
 ```
-
-If you have a domain, change the value of **rootUrl** to `http://[your-domain].com/`. If not, use `http://<droplet-ip>/` for now — you can change it later on if you add a domain.
-
-You also need to change the **apiUrl** and **uploadUrl.** Replace [http://localhost:3030](http://localhost:3030/) to the same value which you did in the last step. If you have used the dropletIp, your file will look something like below:
-
-```bash
-# Change this
-SECRET_KEY=some-dark-hidden-secret
-
-APP_PORT=4040
-ROOT_URL="http://localhost:$appPort"
-# if you are running inside a sub folder, enter that folder name. 
-# eg. /blog
-BASE_NAME=
-
-# Database [sqlite | postgres | mysql]
-DB_TYPE=sqlite
-
-# IF you want to use mysql/postgres, 
-# then add necessary information of your database
-DB_HOST=127.0.0.1
-DB_USER=root
-DB_PASSWORD=
-DB_PORT=3306
-DB_NAME=
-
-# Email
-SMTP_HOST=smtp.gmail.com
-SMTP_USERNAME=
-SMTP_PASSWORD=
-SMTP_PORT=465
-SMTP_SECURE=false
-SMTP_FROM_NAME=Letterpad
-SMTP_FROM_EMAIL=
-
-```
-
-_If you’re using a domain, make sure you’ve configured your DNS properly and allowed enough time for it to resolve \(usually up to 24 hours\)._
 
 Next, change `SECRET_KEY` to a random string. Just make sure it's reasonably long and random.
 
 Lastly, update the SMTP section. This section is important, otherwise you won’t be able to create users, reset passwords, etc. If you don’t already have a transactional email service, you may use your gmail credentials to configure this.
 
 Now save the file by pressing `ctrl + x, y, enter`.
-
-The last step is to install required modules through yarn.
 
 ### Configure Nginx
 
@@ -133,7 +93,7 @@ server {
   client_max_body_size 100m;
 
   location / {
-    proxy_pass http://localhost:4040;
+    proxy_pass http://localhost:3030/;
     proxy_http_version 1.1;
     proxy_set_header Upgrade $http_upgrade;
     proxy_set_header Connection 'upgrade';
@@ -167,17 +127,17 @@ yarn install --production=false
 Before starting letterpad, we have to create the optimized bundles. We can do so by entering the below command in your terminal.
 
 ```text
-yarn buildAllThemes
+yarn build
 ```
 
-This will build the letterpad engine as well the default theme `hugo`.
+This will build the letterpad admin dashboard.
 
 ### Run Letterpad
 
 Once that is done, we will run the below command to turn on letterpad. Remember to have the environment variable `NODE_ENV` to `production` 
 
 ```text
-yarn prod
+yarn start
 ```
 
 If everything is setup properly, you’ll be able to access Letterpad from the URL or IP address you entered in the last step.
@@ -188,7 +148,7 @@ To run any nodeJS application continiously, we will need a task runner like pm2 
 
 ```text
 yarn global add pm2
-pm2 start dist/server.js --name=myblog
+pm2 start yarn --name "letterpad" --interpreter bash -- start
 sudo pm2 startup systemd
 ```
 
