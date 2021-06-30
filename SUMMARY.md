@@ -18,8 +18,5 @@
 
 ## Others
 
-* [Search Engine Optimization](others/seo.md)
-* [Webpack](others/webpack.md)
-* [Database](others/database.md)
 * [Post vs Pages](others/post-vs-pages.md)
 
