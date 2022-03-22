@@ -1,5 +1,7 @@
 # URL of your blog
 
+We provide you with a subdomain for your homepage. And you can customise this simply by changing your username.&#x20;
+
 ### Change your username
 
 Your username is represented in the URL of your blog - `https://{username}.letterpad.app`. If you register with Google or Github, the username is  your Google ID or Github ID.&#x20;
