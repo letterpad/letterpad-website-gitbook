@@ -1,7 +1,7 @@
 # Table of contents
 
 * [Introduction](README.md)
-* [Contribute](channels.md)
+* [Contribute](contribute.md)
 
 ## Setup
 
