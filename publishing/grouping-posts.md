@@ -8,9 +8,9 @@ By this time, you should have an idea on how to write or edit a post. If not, th
 
 
 
-### URL of the post
+### Setting up the url of a post
 
-Let's start with an existing post. Open any post and click on the three dots at the top right corner. A menu will appear which will contain a link to Settings. Clicking on that should open a sidebar from the right.
+Let's start with an existing post. In this example, the title of the post is _My Trip to Paris_. Click on the three dots at the top right corner. A menu will appear which will contain a link to Settings. Clicking on that should open a sidebar from the right.
 
 ![](<../.gitbook/assets/Screenshot 2022-03-22 at 18.35.36.png>)
 
@@ -24,11 +24,11 @@ Clicking on format will do three things for you:
 
 ### Assign a Tag
 
-Now you must assign a tag to this post.  You can assign multiple tags which are relevant to this post. Something around 3-4 tags are good enough. But there has to be one special tag that can group this post with others. Since its about travelling, **travel** can be that unique tag.&#x20;
+Now you must assign a tag to this post.  You can assign multiple tags which are relevant to this post. Something around 3-4 tags are good enough. But there has to be one special tag that can group this post with others. Since this example post relates to travelling, **travel** can be that unique tag.&#x20;
 
 ![Tags](<../.gitbook/assets/Screenshot 2022-03-22 at 18.47.00.png>)
 
-Next we will publish this post and view the site. You can find the publish option at the top of this sidebar. Now go back and view your site.&#x20;
+Next we will publish this post and view the site. You can find the publish option at the top of the sidebar. Now go back and view your site. The post will still not appear because Letterpad has no idea the **travel** is the group that you want to display in your homepage.&#x20;
 
 {% hint style="danger" %}
 If your homepage is not displaying the post you just published, it's because its not a part of navigation menu.&#x20;
@@ -48,7 +48,4 @@ As you can see, the drop-down menu has already displaying the <mark style="color
 
 Now if you create more posts and assign the travel tag, they will display in the homepage.
 
-{% hint style="info" %}
-The first item in the navigation menu will become the homepage. If you select the first item as one of the page then that page will be displayed when you go to your home page. All the items in the navigation menu will be visible in your homepage, thereby allowing the user to navigate through your content easily.
-{% endhint %}
-
+Read more about the navigation menu in this [article](../navigation-menu.md).
