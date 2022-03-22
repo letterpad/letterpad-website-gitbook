@@ -1,22 +1,17 @@
 # Table of contents
 
 * [Introduction](README.md)
-* [Channels](channels.md)
+* [Contribute](channels.md)
 
-## Installation and Setup
+## Setup
 
-* [Development](installation-and-setup/development.md)
-* [Production](installation-and-setup/production.md)
+* [Setting up your blog](setup/setting-up-your-blog.md)
+* [URL of your blog](setup/url-of-your-blog.md)
+* [Appearance](setup/appearance.md)
+* [Update Social Links](setup/update-social-links.md)
 
-## Building a client
+## Publishing
 
-* [Overview](building-a-client/overview.md)
-* [Typescript](building-a-client/typescript.md)
-* [Queries](building-a-client/queries-1.md)
-* [Features](building-a-client/features.md)
-* [Good Practices](building-a-client/good-practices.md)
-
-## Others
-
-* [Post vs Pages](others/post-vs-pages.md)
-
+* [Post vs Pages](publishing/post-vs-pages.md)
+* [Writing a post](publishing/writing-a-post.md)
+* [Grouping posts](publishing/grouping-posts.md)
